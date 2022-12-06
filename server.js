@@ -13,6 +13,7 @@ app.use(cors());
 
 app.listen(port, () => console.log(`express server running on port:${port}`));
 
-app.get("/", (req, res) => res.json({ msg: "Hello World! from the backend" }));
+app.use("/user", require("./routes/user"));
+app.use("/post", require("./routes/post"));
 
 mongoose.connect(mongodb, () => console.log("mongodb connected"));
