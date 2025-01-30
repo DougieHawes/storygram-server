@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 
+import userRoutes from "./routes/userRoutes.js";
+
 dotenv.config();
 
 const app = express();
@@ -14,6 +16,8 @@ app.use(cors());
 app.use(express.json());
 
 app.listen(PORT, console.log(`express app running on port:${PORT}`));
+
+app.use("/user", userRoutes);
 
 mongoose
   .connect(MONGO_DB)
