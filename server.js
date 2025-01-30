@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 
+import galleryRoutes from "./routes/galleryRoute.js";
 import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config();
@@ -17,6 +18,7 @@ app.use(express.json());
 
 app.listen(PORT, console.log(`express app running on port:${PORT}`));
 
+app.use("/gallery", galleryRoutes);
 app.use("/user", userRoutes);
 
 mongoose
